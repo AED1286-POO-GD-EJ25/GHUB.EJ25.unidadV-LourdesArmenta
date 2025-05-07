@@ -1,4 +1,5 @@
 package miPrincipal;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TestException {
@@ -10,9 +11,16 @@ public class TestException {
             int resultado = 5/valor;
             System.out.println(resultado);
         }catch(ArithmeticException ex){
-            System.out.println("Se generó una division por cero: ");
+            System.out.println("Se generó una division por cero: "+ex.getMessage());
 
-        }finally{
+        }catch(InputMismatchException ex){
+            System.out.println("valor inválido: "+ex.getMessage());
+
+        }catch(Exception ex){
+            System.out.println("Ocurrio un error inesperado..."+ex.getMessage());
+        }
+        
+        finally{
             entrada.close();
         }
     }
