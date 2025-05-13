@@ -1,25 +1,45 @@
 package miPrincipal;
 
+import java.io.Console;
+import java.util.Scanner;
+
 public class Principal {
     
 
     public static void main(String[] args) {
 
-        //instanciamos la clase Aplicacion
-        Aplicacion app = new Aplicacion();
+         Aplicacion app = new Aplicacion();
 
-        //intentamos el login
+             Scanner scanner = new Scanner(System.in);
 
-        Usuario u = app.login("juan", "juan123sito");
+            //intentamos el login
 
-        //si los datos son correctos
-        if (u == null){
-            System.out.println("usuario y contraseña incorrecto");
-        }else{
-            System.out.println("Felicidades, login exitoso");
-            System.out.println("Nombre "+u.getNombre());
-            System.out.println("Email "+u.getEmail());
-        }
+            // Solicitar credenciales al usuario
+           
+            System.out.print("Ingrese su nombre de usuario: ");
+            String username = scanner.nextLine();
+       
+            System.out.print("Ingrese su contraseña: ");
+            String password = leerContrasena();//scanner.nextLine();
+            
+            Usuario u = app.login(username, password);
+            //mostramos el resultado<z
+            if (u == null)
+               System.out.println("Acceso denegado !");
+            else{
+                System.out.println("Bienvenido!!");
+                System.out.println(u);
+            }
         
+    }
+     private static String leerContrasena() {
+        Console console = System.console();
+        if (console == null) {
+            System.out.println("No se puede acceder a la consola.");
+            return "";
+        }
+
+        char[] passwordArray = console.readPassword(); // Oculta la entrada y muestra asteriscos
+        return new String(passwordArray);
     }
 }
