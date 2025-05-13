@@ -14,7 +14,7 @@ public class Principal {
 
         //si los datos son correctos
         if (u == null){
-            System.out.println("usuario y contraseña incorrecto")
+            System.out.println("usuario y contraseña incorrecto");
         }else{
             System.out.println("Felicidades, login exitoso");
             System.out.println("Nombre "+u.getNombre());

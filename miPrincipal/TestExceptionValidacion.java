@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class TestExceptionValidacion {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
-        int valor = leerEntero(scanner);
+        int valor = leerEntero(entrada);
         int resultado = 5/valor;
         System.out.println(resultado);
        
@@ -14,7 +14,7 @@ public class TestExceptionValidacion {
         
     }
 
-    public static int leerEntero(Scanner scanner){
+    public static int leerEntero(Scanner entrada){
         while(true){
             System.out.print("Introduce un valor diferente de cero:");
             try{
@@ -35,5 +35,9 @@ public class TestExceptionValidacion {
             }
             
     }
-    
+        return 0;
 }
+}
+
+    
+
